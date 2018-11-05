@@ -1,5 +1,6 @@
 # AcademicPaperRanking
 An effort to analyze and rank Academic papers better than traditional h-index ranking. We will comeup with a new model by  employing numerous important features to research paper ranking rather than just the citation.
+
 TODOs
  - Data cleaning : Big one, Data is far from ideal.
  - Homogenize data by combining DBLP and ACM data into 1 dataframe (currently only ACM version 9 is used). 
