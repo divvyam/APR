@@ -5,7 +5,7 @@ import os
 import sys
 from multiprocessing import Queue
 
-def load_json(year,count=1,offset=0,sub_key="65cd00e1172144df83281c7fbb630540"):
+def load_json(year,sub_key,count=1,offset=0):
     expr = "Y=%d" % year
     offset = str(offset)
     count = str(count)
@@ -51,9 +51,14 @@ def create_connection():
     return conn
 
 ####################################
-sub_key = os.getenv("SUB_KEY")
+sub_key = os.getenv("SUB_KEY", None)
+if not subkey:
+    print "Environment variable \"SUB_KEY\" not set!!"
+    print "set \"SUB_KEY\" using command: export SUB_KEY=<your_subscription_key>"
+    sys.exit(1)
 if len(sys.argv) < 2:
     print "Year is required!!!"
+    sys.exit(1)
 year = int(sys.argv[1])
 start = 0
 end = 15000000
@@ -62,7 +67,7 @@ json_name = "../{}_data.json".format(year)
 for offset in range(start,end,count):
     print "downloading rows from {} to {}".format(offset, offset+count)
     try:
-        entries = load_json(year, count, offset, sub_key)
+        entries = load_json(year, sub_key, count, offset)
     except Exception as e:
         print "Stopping the download received error!!!"
         sys.exit(1)
