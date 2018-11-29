@@ -52,7 +52,7 @@ def create_connection():
 
 ####################################
 sub_key = os.getenv("SUB_KEY", None)
-if not subkey:
+if not sub_key:
     print "Environment variable \"SUB_KEY\" not set!!"
     print "set \"SUB_KEY\" using command: export SUB_KEY=<your_subscription_key>"
     sys.exit(1)
