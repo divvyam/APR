@@ -14,3 +14,5 @@ TODOs
 
 We are just sharing common jupyter notebook here.
 To view the complete project with data go to the kaggle kernal at https://www.kaggle.com/divvyam/dsf-project.
+
+Kernel for working on MAG data: https://www.kaggle.com/gkaur1/mag-kernel
